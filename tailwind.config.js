@@ -8,7 +8,7 @@ module.exports = {
       white:'#ffffff',
       netflixLine:'#564d4d',
       netflixDark:'#831010',
-      transparent:'',
+      blue:'#0071EB',
     },
     extend: {
       backgroundImage: {

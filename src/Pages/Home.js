@@ -1,48 +1,29 @@
 import React from "react";
 import { FAQ } from "../utils/FAQ";
+import HomeForm from "../Components/HomeForm";
 
 const Home = () => {
+  
   return (
     <div className="bg-black">
-      <section className="w-full h-[70vh] bg-bg-home bg-center shadow-[inset_-33px_-29px_361px_170px_#000] bg-cover flex justify-center items-center">
-        <div className="w-8/12 flex justify-center items-center  flex-col gap-4">
-          <div className="text-5xl font-bold text-white">
-            Unlimited movies, TV shows and more
-          </div>
-          <div className="text-2xl text-white">
-            Watch anywhere. Cancel anytime.
-          </div>
-          <div className="text-center text-xl font-medium text-white">
-            Ready to watch? Enter your email to create or restart your
-            membership.
-          </div>
-          <div className="flex w-[65%] justify-center items-center gap-x-4 text-xl font-bold">
-            <input
-              className="w-[50%] placeholder:text-base placeholder:font-[300] text-white px-4 py-3 bg-black border-2 border-netflixLine rounded-sm"
-              placeholder="Email address"
-              type="text"
-            />
-            <div className="bg-netflix hover:bg-netflixDark transition-all duration-200 py-3 rounded-sm flex-shrink-0 flex text-white">
-              <button className="px-4 flex  items-center">
-                Get Started
-                <svg
-                  className="w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
+      <section className="w-full h-[75vh] bg-bg-home shadow-[inset_0px_20px_50px_50px_#000]">
+        <div className="w-full h-[75vh] bg-black/50 absolute inset-0 flex justify-center items-center">
+          <div className="w-8/12 flex justify-center items-center  flex-col gap-4">
+            <div className="text-5xl font-bold text-white">
+              Unlimited movies, TV shows and more
             </div>
+            <div className="text-2xl text-white">
+              Watch anywhere. Cancel anytime.
+            </div>
+            <div className="text-center text-xl font-medium text-white">
+              Ready to watch? Enter your email to create or restart your
+              membership.
+            </div>
+            <HomeForm/>
           </div>
         </div>
       </section>
-      <div className="h-2 bg-netflixLine" />
+      <div className="h-2 bg-netflixLine/40" />
       <section className="py-20  flex flex-col sm:flex-row sm:justify-between sm:items-center gap-x-12 mx-auto h-[60vh] w-8/12 z-50 text-white bg-black">
         <div className="flex my-auto  h-full justify-center   items-center  flex-col sm:w-1/2 gap-4 w-full">
           <div className="text-5xl text-left  w-full font-bold">
@@ -63,10 +44,10 @@ const Home = () => {
 
           <video
             className="w-[365px] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[53%]"
-            playsinline="true"
-            autoplay="true"
-            loop="true"
-            muted="true"
+            playsInline={true}
+            autoPlay={true}
+            loop={true}
+            muted={true}
           >
             <source
               src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
@@ -75,7 +56,7 @@ const Home = () => {
           </video>
         </div>
       </section>
-      <div className="h-2 bg-netflixLine" />
+      <div className="h-2 bg-netflixLine/40" />
       <section className="py-20  flex flex-col sm:flex-row sm:justify-between sm:items-center gap-x-12 mx-auto h-[60vh] w-8/12 z-50 text-white bg-black">
         <div className="flex my-auto  h-full justify-center items-center flex-col sm:w-1/2 w-full">
           <div className="relative">
@@ -89,7 +70,7 @@ const Home = () => {
                   />
                   <div>
                     <p>Stranger Things</p>
-                    <p className="text-blue-700">Downloading...</p>
+                    <p className="text-blue">Downloading...</p>
                   </div>
                 </div>
                 <img
@@ -116,7 +97,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <div className="h-2 bg-netflixLine" />
+      <div className="h-2 bg-netflixLine/40" />
       <section className="py-20  flex flex-col sm:flex-row sm:justify-between sm:items-center gap-x-12 mx-auto h-[60vh] w-8/12 z-50 text-white bg-black">
         <div className="flex my-auto  h-full justify-center   items-center  flex-col sm:w-1/2 gap-4 w-full">
           <div className="text-5xl text-left  w-full font-bold">
@@ -136,10 +117,10 @@ const Home = () => {
 
           <video
             className="w-[330px] absolute top-[30%] left-[50%] -translate-x-[51%] -translate-y-[50%]"
-            playsinline="true"
-            autoplay="true"
-            loop="true"
-            muted="true"
+            playsInline={true}
+            autoPlay={true}
+            loop={true}
+            muted={true}
           >
             <source
               src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices-in.m4v"
@@ -148,7 +129,7 @@ const Home = () => {
           </video>
         </div>
       </section>
-      <div className="h-2 bg-netflixLine" />
+      <div className="h-2 bg-netflixLine/40" />
       <section className="py-20  flex flex-col sm:flex-row sm:justify-between sm:items-center gap-x-12 mx-auto h-[60vh] w-8/12 z-50 text-white bg-black">
         <div className="flex my-auto  h-full justify-center items-center flex-col sm:w-1/2 w-full">
           <img
@@ -166,7 +147,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <div className="h-2 bg-netflixLine" />
+      <div className="h-2 bg-netflixLine/40" />
       <section className="py-16 mx-auto flex justify-center items-center w-full z-50 text-white bg-black">
         <div className="w-full max-w-3xl mx-auto">
           <div className="text-5xl font-bold text-center">
@@ -190,32 +171,11 @@ const Home = () => {
           </div>
 
           <div className="flex w-full justify-center items-center gap-x-4 text-xl font-bold">
-            <input
-              className="w-[50%] placeholder:text-base placeholder:font-[300] text-white px-4 py-3 bg-black border-2 border-netflixLine rounded-sm"
-              placeholder="Email address"
-              type="text"
-            />
-            <div className="bg-netflix hover:bg-netflixDark transition-all duration-200 py-3 rounded-sm flex-shrink-0 flex text-white">
-              <button className="px-4 flex  items-center">
-                Get Started
-                <svg
-                  className="w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
+          <HomeForm />
           </div>
         </div>
       </section>
-      <div className="h-2 bg-netflixLine" />
+      <div className="h-2 bg-netflixLine/40" />
     </div>
   );
 };

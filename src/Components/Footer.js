@@ -1,10 +1,16 @@
 import React from "react";
+import { TbLanguageKatakana } from "react-icons/tb";
 
 const Footer = () => {
   return (
     <footer className="w-full mx-auto bg-black text-[#ffffffb3] text-sm font-[400]">
       <div className="w-8/12 mx-auto p-10 space-y-2">
-        <div>Questions? <span className="underline cursor-pointer">Call 000-800-040-1843</span></div>
+        <div>
+          Questions?{" "}
+          <span className="underline cursor-pointer">
+            Call 000-800-040-1843
+          </span>
+        </div>
 
         <div className="flex-wrap w-full flex my-4 underline">
           <div className="sm:w-1/4 w-1/2">
@@ -41,14 +47,11 @@ const Footer = () => {
         </div>
 
         <div className="space-y-4 pt-3">
-          <div>
-            <select
-              className="bg-black cursor-pointer rounded border border-white px-4 py-1 text-white"
-              name="lang"
-              id="lang"
-            >
-                <option value="English">English</option>
-                <option value="हिन्दी">हिन्दी</option>
+          <div className="w-fit flex justify-center items-center gap-2 bg-black cursor-pointer rounded-md border border-netflixLine px-4 py-2 font-bold text-sm text-white">
+            <TbLanguageKatakana className="text-xl" />
+            <select className="bg-black outline-none" name="lang" id="lang">
+              <option value="English">English</option>
+              <option value="हिन्दी">हिन्दी</option>
             </select>
           </div>
           <div className="no-underline">Netflix India</div>
