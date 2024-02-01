@@ -5,10 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import toast from "react-hot-toast";
+import { addUser } from "../redux/slices/userSlice";
+import { useDispatch } from "react-redux";
 
 const Signin = () => {
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -21,14 +24,22 @@ const Signin = () => {
     setLoading(true);
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
+        console.log("User credential : ", userCredential);
+        dispatch(
+          addUser({
+            accessToken: userCredential?.user?.accessToken,
+            email: userCredential?.user?.email,
+            displayName: userCredential?.user?.displayName,
+            photoURL: userCredential?.user?.photoURL,
+          })
+        );
         toast.success("Sign in successfully");
-        // console.log("userCredential : ", userCredential);
         navigate("/browse");
         setLoading(false);
       })
       .catch((error) => {
-        // console.log(error);
         toast.error(error.message);
+        console.log(error);
         setLoading(false);
       });
   }

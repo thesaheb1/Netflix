@@ -10,7 +10,8 @@ import Browse from "./Pages/Browse";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
-import AuthZ from "./Authorization/AuthZ";
+import OpenRoute from "./Authorization/OpenRoute";
+import PrivateRoute from "./Authorization/PrivateRoute";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const appRouter = createBrowserRouter([
   {
@@ -20,22 +21,34 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: (
-          <AuthZ>
+          <OpenRoute>
             <Home />
-          </AuthZ>
+          </OpenRoute>
         ),
       },
       {
         path: "/signin",
-        element: <Signin />,
+        element: (
+          <OpenRoute>
+            <Signin />
+          </OpenRoute>
+        ),
       },
       {
         path: "/signup",
-        element: <Signup />,
+        element: (
+          <OpenRoute>
+            <Signup />
+          </OpenRoute>
+        ),
       },
       {
         path: "/browse",
-        element: <Browse />,
+        element: (
+          <PrivateRoute>
+            <Browse />
+          </PrivateRoute>
+        ),
       },
     ],
   },

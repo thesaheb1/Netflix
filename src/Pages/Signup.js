@@ -3,13 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 
-
 const Signup = () => {
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -18,35 +17,38 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
-    function submitHandler(data) {
-      setLoading(true);
-      console.log(data)
-      createUserWithEmailAndPassword(auth, data.email, data.password)
-        .then((userCredential) => {
+  function submitHandler(data) {
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, data.email, data.password).then(() => {
+      updateProfile(auth.currentUser, {
+        displayName: data.fullName,
+        photoURL:
+          "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg",
+      })
+        .then(() => {
           toast.success("Sign up successfully");
-          // console.log("userCredential : ", userCredential);
           localStorage.setItem("SignInEmail", data.email);
           localStorage.setItem("SignInPassword", data.password);
           navigate("/signin");
           setLoading(false);
         })
         .catch((error) => {
-          // console.log(error);
           toast.error(error.message);
+          console.log(error);
           setLoading(false);
         });
-    }
+    });
+  }
 
   useEffect(() => {
-    if(localStorage.getItem("SignUpEmail")){
+    if (localStorage.getItem("SignUpEmail")) {
       setValue("email", localStorage.getItem("SignUpEmail"));
     }
     return () => {
       localStorage.removeItem("SignUpEmail");
-
-    }
+    };
     // eslint-disable-next-line
-  },[])
+  }, []);
   return (
     <div className="w-full min-h-[100vh] bg-bg-home shadow-[inset_0px_20px_50px_50px_#000]">
       <div className="w-full min-h-full bg-black/40 absolute inset-0 flex justify-center items-center">
@@ -123,8 +125,22 @@ const Signup = () => {
               {loading ? "Loading..." : "Sign up"}
             </button>
           </form>
-          <p className="text-white/50 text-base my-4">Already an account? <Link to='/signin' className="text-white hover:underline transition-all duration-200">Sign in</Link></p>
-          <p className="text-white/50 text-xs">This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className="text-blue cursor-pointer hover:underline transition-all duration-200">Learn more.</span></p>
+          <p className="text-white/50 text-base my-4">
+            Already an account?{" "}
+            <Link
+              to="/signin"
+              className="text-white hover:underline transition-all duration-200"
+            >
+              Sign in
+            </Link>
+          </p>
+          <p className="text-white/50 text-xs">
+            This page is protected by Google reCAPTCHA to ensure you're not a
+            bot.{" "}
+            <span className="text-blue cursor-pointer hover:underline transition-all duration-200">
+              Learn more.
+            </span>
+          </p>
         </div>
       </div>
     </div>

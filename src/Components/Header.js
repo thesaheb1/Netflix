@@ -1,19 +1,25 @@
 import { TbLanguageKatakana } from "react-icons/tb";
 import React from "react";
 import logo from "../Assets/images/logo.png";
-import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import toast from "react-hot-toast";
+import { removeUser } from "../redux/slices/userSlice";
 
 const Header = () => {
+  const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.user);
+  
   const onSignOutHandler = () => {
     signOut(auth)
       .then(() => {
+        dispatch(removeUser());
         toast.success("Sign out successfully");
+        navigate('/');
       })
       .catch((error) => {
         // An error happened.
