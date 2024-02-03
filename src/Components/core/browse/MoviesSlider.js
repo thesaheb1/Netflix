@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import "swiper/css";
 import "swiper/css/scrollbar";
-import { IMG_CDN } from "../../../utils/Constants";
+import { IMG_CDN, options } from "../../../utils/Constants";
 import { GetCurrentMovieData } from "../../../helper/GetCurrentMovieData";
 
-const NowPlayingMoviesSlider = () => {
-  const { nowPlayingMovies } = useSelector((state) => state.movies);
+const MoviesSlider = ({ title, url }) => {
   const dispatch = useDispatch();
+  const [moviesData, setMoviesData] = useState(null);
+
+  const getMoviesData = () => {
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((json) => {
+        setMoviesData(json?.results);
+      })
+      .catch((err) => console.error("error:" + err));
+  };
+
+  useEffect(() => {
+    getMoviesData();
+    // eslint-disable-next-line
+  }, []);
   return (
     <div className="w-full pt-8">
-      <p className="text-white text-2xl font-bold my-4">Now Playing Movies</p>
+      <p className="text-white text-2xl font-bold my-4">{title} Movies</p>
       <Swiper
         spaceBetween={10}
         scrollbar={{ draggable: true }}
@@ -44,10 +57,12 @@ const NowPlayingMoviesSlider = () => {
         }}
         loop={true}
       >
-        {nowPlayingMovies?.map((poster) => (
+        {moviesData?.map((poster) => (
           <SwiperSlide key={poster?.id}>
             <img
-              onClick={() => {GetCurrentMovieData(poster?.id, poster, dispatch)}}
+              onClick={() => {
+                GetCurrentMovieData(poster?.id, poster, dispatch);
+              }}
               className="h-[200px] rounded-md cursor-pointer"
               src={IMG_CDN + poster?.poster_path}
               alt="Movie Poster"
@@ -59,4 +74,4 @@ const NowPlayingMoviesSlider = () => {
   );
 };
 
-export default NowPlayingMoviesSlider;
+export default MoviesSlider;

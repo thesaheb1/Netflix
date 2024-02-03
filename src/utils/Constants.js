@@ -1,3 +1,4 @@
+// ------------FAQ-----------
 export const FAQ = [
   {
     id: 101,
@@ -37,9 +38,22 @@ export const FAQ = [
   },
 ];
 
+// -----------IMAGE CDN--------------
 export const IMG_CDN = "https://image.tmdb.org/t/p/w200";
+
+//------------- MOVIES LINK --------------
+// nowPlayingMoviesUrl
 export const nowPlayingMoviesUrl =
   "https://api.themoviedb.org/3/movie/now_playing";
+
+// popularMoviesUrl
+export const popularMoviesUrl = "https://api.themoviedb.org/3/movie/popular";
+// topRatedMoviesUrl
+export const topRatedMoviesUrl = "https://api.themoviedb.org/3/movie/top_rated";
+// upcommingMoviesUrl
+export const upcommingMoviesUrl = "https://api.themoviedb.org/3/movie/upcoming";
+
+// -------------OPTIONS--------------
 export const options = {
   method: "GET",
   headers: {

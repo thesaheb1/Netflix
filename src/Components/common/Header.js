@@ -24,9 +24,9 @@ const Header = () => {
   };
   return (
     <header className="w-full absolute py-8 z-[999]">
-      <nav className={`${location.pathname === "/browse" ? "w-[95%]" : "w-8/12"} mx-auto flex justify-between items-center`}>
+      <nav className={`${location.pathname === "/browse" ? "w-full" : "w-full md:w-8/12"} px-8 mx-auto flex justify-between items-center`}>
         <Link to="/">
-          <img src={logo} alt="logo" width={150} height={40} />
+          <img src={logo} alt="logo" className="w-[90px] h-[25px] sm:w-[150px] sm:h-[40px]" />
         </Link>
 
         {!userData && location.pathname === "/" && (

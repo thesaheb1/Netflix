@@ -4,7 +4,7 @@ import { TbLanguageKatakana } from "react-icons/tb";
 const Footer = () => {
   return (
     <footer className="w-full mx-auto bg-black text-[#ffffffb3] text-sm font-[400]">
-      <div className="w-8/12 mx-auto p-10 space-y-2">
+      <div className="w-full sm:w-[90%] lg:w-4/5 xl:w-8/12 mx-auto  p-8 space-y-2">
         <div>
           Questions?{" "}
           <span className="underline cursor-pointer">

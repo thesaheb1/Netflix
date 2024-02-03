@@ -7,12 +7,13 @@ const MovieDescription = () => {
     const { movieDetails } = useSelector(
         (state) => state.movies
       );
+
   return (
-    <div className="w-[500px]">
-      <h1 className="text-5xl text-white font-bold">
+    <div className="max-w-[500px]">
+      <h1 className="text-2xl md:text-5xl text-white font-bold">
         {movieDetails?.original_title}
       </h1>
-      <p className="text-xl text-white font-medium opacity-90 mt-8">
+      <p className="text-base md:text-xl text-white font-medium opacity-90 mt-8">
         {movieDetails?.overview?.substring(0, 150) + "..."}
       </p>
       <div className="flex items-center mt-4 gap-x-4">

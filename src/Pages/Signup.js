@@ -56,7 +56,7 @@ const Signup = () => {
   return (
     <div className="w-full min-h-[100vh] bg-bg-home shadow-[inset_0px_20px_50px_50px_#000]">
       <div className="w-full min-h-full bg-black/40 absolute inset-0 flex justify-center items-center">
-        <div className="w-[450px] h-fit bg-black/80 p-16 mt-10">
+        <div className="w-[450px] h-fit bg-black/80 p-8 sm:p-16 mt-10">
           <p className="text-white text-4xl font-bold">Sign Up</p>
           <form
             onSubmit={handleSubmit(submitHandler)}

@@ -35,7 +35,7 @@ const App = () => {
     // eslint-disable-next-line
   }, []);
   return (
-    <div>
+    <div className="bg-black">
       <Header />
       <Outlet />
       <Footer />
