@@ -5,12 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import toast from "react-hot-toast";
-import { addUser } from "../redux/slices/userSlice";
-import { useDispatch } from "react-redux";
 
 const Signin = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
   const {
@@ -23,16 +20,7 @@ const Signin = () => {
   function submitHandler(data) {
     setLoading(true);
     signInWithEmailAndPassword(auth, data.email, data.password)
-      .then((userCredential) => {
-        console.log("User credential : ", userCredential);
-        dispatch(
-          addUser({
-            accessToken: userCredential?.user?.accessToken,
-            email: userCredential?.user?.email,
-            displayName: userCredential?.user?.displayName,
-            photoURL: userCredential?.user?.photoURL,
-          })
-        );
+      .then(() => {
         toast.success("Sign in successfully");
         navigate("/browse");
         setLoading(false);
@@ -45,17 +33,19 @@ const Signin = () => {
   }
 
   useEffect(() => {
-    if(localStorage.getItem("SignInEmail") && localStorage.getItem("SignInPassword")){
+    if (
+      localStorage.getItem("SignInEmail") &&
+      localStorage.getItem("SignInPassword")
+    ) {
       setValue("email", localStorage.getItem("SignInEmail"));
       setValue("password", localStorage.getItem("SignInPassword"));
     }
     return () => {
       localStorage.removeItem("SignInEmail");
       localStorage.removeItem("SignInPassword");
-
-    }
+    };
     // eslint-disable-next-line
-  },[])
+  }, []);
   return (
     <div className="w-full min-h-[100vh] bg-bg-home shadow-[inset_0px_20px_50px_50px_#000]">
       <div className="w-full min-h-full bg-black/40 absolute inset-0 flex justify-center items-center">

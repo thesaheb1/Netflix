@@ -36,3 +36,15 @@ export const FAQ = [
       "The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space. Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.",
   },
 ];
+
+export const IMG_CDN = "https://image.tmdb.org/t/p/w200";
+export const nowPlayingMoviesUrl =
+  "https://api.themoviedb.org/3/movie/now_playing";
+export const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNDAzMzcyNmNhMTIwNjM5ZWZmZmNmYzVmZTg0YjQwNiIsInN1YiI6IjY1YmMwZTNhMTFjMDY2MDE3YmQwZGQ5NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RbagfEVOqG_Eg-aLv9P9rztRoVtQ2Xv0Tz0gecn5SDY",
+  },
+};

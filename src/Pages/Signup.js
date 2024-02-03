@@ -37,7 +37,11 @@ const Signup = () => {
           console.log(error);
           setLoading(false);
         });
-    });
+    }).catch((error) => {
+      toast.error(error.message);
+      console.log(error);
+      setLoading(false);
+    });;
   }
 
   useEffect(() => {

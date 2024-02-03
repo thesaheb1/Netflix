@@ -1,6 +1,6 @@
 import React from "react";
-import { FAQ } from "../utils/FAQ";
-import HomeForm from "../Components/HomeForm";
+import { FAQ } from "../utils/Constants";
+import HomeForm from "../Components/common/HomeForm";
 
 const Home = () => {
   
