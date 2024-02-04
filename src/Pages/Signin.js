@@ -47,8 +47,8 @@ const Signin = () => {
     // eslint-disable-next-line
   }, []);
   return (
-    <div className="w-full min-h-[100vh] bg-bg-home shadow-[inset_0px_20px_50px_50px_#000]">
-      <div className="w-full min-h-full bg-black/40 absolute inset-0 flex justify-center items-center">
+    <div className="w-full min-h-fit sm:min-h-[100vh] sm:bg-bg-home shadow-[inset_0px_20px_50px_50px_#000]">
+      <div className="w-full min-h-full bg-black/40 sm:absolute sm:inset-0 flex justify-center items-center">
         <div className="w-[450px] h-fit bg-black/80 p-8 sm:p-16 mt-10">
           <p className="text-white text-4xl font-bold">Sign In</p>
           <form

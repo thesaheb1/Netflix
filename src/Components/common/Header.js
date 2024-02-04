@@ -23,7 +23,7 @@ const Header = () => {
       });
   };
   return (
-    <header className="w-full absolute py-8 z-[999]">
+    <header className="w-full absolute top-0 py-8 z-[999] mb-8">
       <nav className={`${location.pathname === "/browse" ? "w-full" : "w-full md:w-8/12"} px-8 mx-auto flex justify-between items-center`}>
         <Link to="/">
           <img src={logo} alt="logo" className="w-[90px] h-[25px] sm:w-[150px] sm:h-[40px]" />
@@ -31,9 +31,9 @@ const Header = () => {
 
         {!userData && location.pathname === "/" && (
           <div className="flex justify-center items-center gap-x-4">
-            <div className="flex justify-center items-center gap-2 bg-black cursor-pointer rounded-md border border-netflixLine px-4 py-2 font-bold text-sm text-white">
+            <div className="flex justify-center items-center gap-2 bg-black cursor-pointer rounded-md border border-netflixLine px-1 sm:px-4 py-2 font-bold text-sm text-white">
               <TbLanguageKatakana className="text-xl" />
-              <select className="bg-black outline-none" name="lang" id="lang">
+              <select className="bg-black outline-none sm:w-auto w-3" name="lang" id="lang">
                 <option value="English">English</option>
                 <option value="हिन्दी">हिन्दी</option>
               </select>
