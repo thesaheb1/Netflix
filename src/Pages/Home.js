@@ -23,7 +23,7 @@ const Home = () => {
         </div>
       </section>
       <div className="h-2 bg-netflixLine/40" />
-      <section className="py-20 px-4 flex flex-col md:flex-row md:justify-between md:items-center gap-x-12 mx-auto h-[60vh] w-full sm:w-[90%] lg:w-4/5 xl:w-8/12 z-50 text-white bg-black">
+      <section className="my-12 px-4 flex flex-col md:flex-row md:justify-between md:items-center gap-x-12 mx-auto h-[60vh] w-full sm:w-[90%] lg:w-4/5 xl:w-8/12 z-50 text-white bg-black">
         <div className="flex my-auto h-full justify-center items-center  flex-col md:w-1/2 gap-4 w-full">
           <div className="text-3xl lg:text-5xl text-center md:text-left  w-full font-bold">
             Enjoy on your TV.
@@ -56,7 +56,7 @@ const Home = () => {
         </div>
       </section>
       <div className="h-2 bg-netflixLine/40" />
-      <section className="py-20 px-4 flex flex-col-reverse md:flex-row md:justify-between md:items-center gap-x-12 mx-auto h-[60vh] w-full sm:w-[90%] lg:w-4/5 xl:w-8/12 z-50 text-white bg-black">
+      <section className="my-12 px-4 flex flex-col-reverse md:flex-row md:justify-between md:items-center gap-x-12 mx-auto h-[60vh] w-full sm:w-[90%] lg:w-4/5 xl:w-8/12 z-50 text-white bg-black">
         <div className="flex my-auto  h-full justify-center items-center flex-col md:w-1/2 w-full">
           <div className="relative">
             <div className="flex justify-center w-full">
@@ -98,7 +98,7 @@ const Home = () => {
         </div>
       </section>
       <div className="h-2 bg-netflixLine/40" />
-      <section className="py-20 px-4 flex flex-col md:flex-row md:justify-between md:items-center gap-x-12 mx-auto h-[60vh] w-full sm:w-[90%] lg:w-4/5 xl:w-8/12 z-50 text-white bg-black">
+      <section className="my-12 px-4 flex flex-col md:flex-row md:justify-between md:items-center gap-x-12 mx-auto h-[60vh] w-full sm:w-[90%] lg:w-4/5 xl:w-8/12 z-50 text-white bg-black">
         <div className="flex my-auto  h-full justify-center   items-center  flex-col md:w-1/2 gap-4 w-full">
           <div className="text-3xl lg:text-5xl text-center md:text-left w-full font-bold">
             Watch everywhere
@@ -130,7 +130,7 @@ const Home = () => {
         </div>
       </section>
       <div className="h-2 bg-netflixLine/40" />
-      <section className="py-20 px-4 flex flex-col-reverse sm:flex-row md:justify-between md:items-center gap-x-12 mx-auto h-[60vh] w-full sm:w-[90%] lg:w-4/5 xl:w-8/12 z-50 text-white bg-black">
+      <section className="my-12 px-4 flex flex-col-reverse sm:flex-row md:justify-between md:items-center gap-x-12 mx-auto h-[60vh] w-full sm:w-[90%] lg:w-4/5 xl:w-8/12 z-50 text-white bg-black">
         <div className="flex my-auto h-full justify-center items-center flex-col md:w-1/2 w-full">
           <img
           className="w-full"
@@ -149,7 +149,7 @@ const Home = () => {
         </div>
       </section>
       <div className="h-2 bg-netflixLine/40" />
-      <section className="py-16 px-4 mx-auto flex justify-center items-center w-full z-50 text-white bg-black">
+      <section className="my-16 px-4 mx-auto flex justify-center items-center w-full z-50 text-white bg-black">
         <div className="w-full max-w-3xl mx-auto">
           <div className="text-3xl lg:text-5xl font-bold text-center">
             Frequently Asked Questions

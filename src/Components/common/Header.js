@@ -1,3 +1,4 @@
+import { FaSearch } from "react-icons/fa";
 import { TbLanguageKatakana } from "react-icons/tb";
 import React from "react";
 import logo from "../../Assets/images/logo.png";
@@ -10,7 +11,7 @@ import { auth } from "../../firebase/firebaseConfig";
 const Header = () => {
   const location = useLocation();
   const { userData } = useSelector((state) => state.user);
-  
+
   const onSignOutHandler = () => {
     signOut(auth)
       .then(() => {
@@ -24,16 +25,28 @@ const Header = () => {
   };
   return (
     <header className="w-full absolute top-0 py-8 z-[999] mb-8">
-      <nav className={`${location.pathname === "/browse" ? "w-full" : "w-full md:w-8/12"} px-8 mx-auto flex justify-between items-center`}>
+      <nav
+        className={`${
+          location.pathname === "/browse" ? "w-full" : "w-full md:w-8/12"
+        } px-8 mx-auto flex justify-between items-center`}
+      >
         <Link to="/">
-          <img src={logo} alt="logo" className="w-[90px] h-[25px] sm:w-[150px] sm:h-[40px]" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-[90px] h-[25px] sm:w-[150px] sm:h-[40px]"
+          />
         </Link>
 
         {!userData && location.pathname === "/" && (
           <div className="flex justify-center items-center gap-x-4">
             <div className="flex justify-center items-center gap-2 bg-black cursor-pointer rounded-md border border-netflixLine px-1 sm:px-4 py-2 font-bold text-sm text-white">
               <TbLanguageKatakana className="text-xl" />
-              <select className="bg-black outline-none sm:w-auto w-3" name="lang" id="lang">
+              <select
+                className="bg-black outline-none sm:w-auto w-3"
+                name="lang"
+                id="lang"
+              >
                 <option value="English">English</option>
                 <option value="हिन्दी">हिन्दी</option>
               </select>
@@ -47,12 +60,15 @@ const Header = () => {
           </div>
         )}
         {userData && (
-          <button
-            onClick={onSignOutHandler}
-            className="bg-netflix hover:bg-netflixDark transition-all duration-200 rounded-md px-4 py-2 font-bold text-sm text-white"
-          >
-            Sign Out
-          </button>
+          <div className="flex justify-center items-center gap-x-4 font-bold">
+            <FaSearch className="text-xl text-netflix" />
+            <button
+              onClick={onSignOutHandler}
+              className="bg-netflix hover:bg-netflixDark transition-all duration-200 rounded-md px-4 py-2 font-bold text-sm text-white"
+            >
+              Sign Out
+            </button>
+          </div>
         )}
       </nav>
     </header>
