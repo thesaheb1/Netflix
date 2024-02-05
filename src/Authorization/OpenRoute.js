@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 
 const OpenRoute = ({children}) => {
     const {userData} = useSelector(state => state.user)
-    if(userData?.accessToken){
+    if(userData?.displayName){
         return (<Navigate to='/browse' />)
     }
     return children;

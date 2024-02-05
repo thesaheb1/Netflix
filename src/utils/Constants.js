@@ -39,7 +39,10 @@ export const FAQ = [
 ];
 
 // -----------IMAGE CDN--------------
-export const IMG_CDN = "https://image.tmdb.org/t/p/w200";
+export const IMG_CDN = "https://image.tmdb.org/t/p/w400";
+
+// -----------movieSearchUrl--------------
+export const movieSearchUrl = searchData =>  `https://api.themoviedb.org/3/search/movie?query=${searchData}&include_adult=false&language=en-US&page=1`;
 
 //------------- MOVIES LINK --------------
 // nowPlayingMoviesUrl

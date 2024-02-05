@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom'
 const PrivateRoute = ({children}) => {
     
     const {userData} = useSelector(state => state.user)
-    if(userData?.accessToken){
+    if(userData?.displayName){
         return children
     }
   return <Navigate to='/signin' />

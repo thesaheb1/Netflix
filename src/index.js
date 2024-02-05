@@ -12,6 +12,9 @@ import { Provider } from "react-redux";
 import store from "./redux/store/store";
 import OpenRoute from "./Authorization/OpenRoute";
 import PrivateRoute from "./Authorization/PrivateRoute";
+import Search from "./Pages/Search";
+import MyProfile from "./Pages/MyProfile";
+import Settings from "./Pages/Settings";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const appRouter = createBrowserRouter([
   {
@@ -47,6 +50,30 @@ const appRouter = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Browse />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/search",
+        element: (
+          <PrivateRoute>
+            <Search />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-profile",
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/settings",
+        element: (
+          <PrivateRoute>
+            <Settings />
           </PrivateRoute>
         ),
       },

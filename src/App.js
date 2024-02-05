@@ -13,7 +13,7 @@ const App = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe =  onAuthStateChanged(auth, (user) => {
       // User is signed in
       if (user?.displayName) {
         dispatch(
