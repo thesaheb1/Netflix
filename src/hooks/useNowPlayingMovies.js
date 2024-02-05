@@ -6,14 +6,15 @@ import { useEffect } from "react";
 
 export const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
-  const getNowPlayingMovies = () => {
-    fetch(nowPlayingMoviesUrl, options)
-      .then((res) => res.json())
-      .then((json) => {
-        dispatch(addNowPlayingMovies(json?.results));
-        GetCurrentMovieData(json?.results[0]?.id, json?.results[0], dispatch);
-      })
-      .catch((err) => console.error("error:" + err));
+  const getNowPlayingMovies = async () => {
+    try {
+      const res = await fetch(nowPlayingMoviesUrl, options);
+      const data = await res.json();
+      dispatch(addNowPlayingMovies(data?.results));
+      GetCurrentMovieData(data?.results[0]?.id, data?.results[0], dispatch);
+    } catch (error) {
+      console.error("error:" + error);
+    }
   };
   useEffect(() => {
     getNowPlayingMovies();

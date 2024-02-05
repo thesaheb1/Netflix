@@ -17,31 +17,25 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
-  function submitHandler(data) {
+  async function submitHandler(data) {
     setLoading(true);
-    createUserWithEmailAndPassword(auth, data.email, data.password).then(() => {
-      updateProfile(auth.currentUser, {
+    try {
+      await createUserWithEmailAndPassword(auth, data.email, data.password);
+      await updateProfile(auth.currentUser, {
         displayName: data.fullName,
         photoURL:
           "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg",
-      })
-        .then(() => {
-          toast.success("Sign up successfully");
-          localStorage.setItem("SignInEmail", data.email);
-          localStorage.setItem("SignInPassword", data.password);
-          navigate("/signin");
-          setLoading(false);
-        })
-        .catch((error) => {
-          toast.error(error.message);
-          console.log(error);
-          setLoading(false);
-        });
-    }).catch((error) => {
+      });
+      toast.success("Sign up successfully");
+      localStorage.setItem("SignInEmail", data.email);
+      localStorage.setItem("SignInPassword", data.password);
+      navigate("/signin");
+      setLoading(false);
+    } catch (error) {
       toast.error(error.message);
       console.log(error);
       setLoading(false);
-    });;
+    }
   }
 
   useEffect(() => {

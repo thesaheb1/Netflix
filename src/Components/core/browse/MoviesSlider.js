@@ -10,13 +10,14 @@ const MoviesSlider = ({ title, url }) => {
   const dispatch = useDispatch();
   const [moviesData, setMoviesData] = useState(null);
 
-  const getMoviesData = () => {
-    fetch(url, options)
-      .then((res) => res.json())
-      .then((json) => {
-        setMoviesData(json?.results);
-      })
-      .catch((err) => console.error("error:" + err));
+  const getMoviesData = async () => {
+    try {
+      const res = await fetch(url, options);
+      const data = await res.json();
+      setMoviesData(data?.results);
+    } catch (error) {
+      console.error("error:" + error);
+    }
   };
 
   useEffect(() => {

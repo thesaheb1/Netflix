@@ -17,19 +17,19 @@ const Signin = () => {
     formState: { errors },
   } = useForm();
 
-  function submitHandler(data) {
+  async function submitHandler(data) {
     setLoading(true);
-    signInWithEmailAndPassword(auth, data.email, data.password)
-      .then(() => {
-        toast.success("Sign in successfully");
-        navigate("/browse");
-        setLoading(false);
-      })
-      .catch((error) => {
-        toast.error(error.message);
-        console.log(error);
-        setLoading(false);
-      });
+
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      toast.success("Sign in successfully");
+      navigate("/browse");
+      setLoading(false);
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
+      setLoading(false);
+    }
   }
 
   useEffect(() => {

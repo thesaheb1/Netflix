@@ -12,17 +12,17 @@ const Header = () => {
   const location = useLocation();
   const { userData } = useSelector((state) => state.user);
 
-  const onSignOutHandler = () => {
-    signOut(auth)
-      .then(() => {
-        toast.success("Sign out successfully");
-      })
-      .catch((error) => {
-        // An error happened.
-        console.error(error);
-        toast.success("Sign out failed");
-      });
+  const onSignOutHandler = async () => {
+    try {
+      await signOut(auth);
+      toast.success("Sign out successfully");
+    } catch (error) {
+      // An error happened.
+      console.error(error);
+      toast.success("Sign out failed");
+    }
   };
+  
   return (
     <header className="w-full absolute top-0 py-8 z-[999] mb-8">
       <nav
